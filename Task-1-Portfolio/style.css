@@ -1,3 +1,4 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -90,6 +91,21 @@ nav a:hover::after {
     opacity: 0.85;
 }
 
+.hero .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 0.6rem 1.2rem;
+    background-color: #6366f1;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.hero .btn:hover {
+    background-color: #4f46e5;
+}
+
 /* ================= SECTIONS ================= */
 .section {
     padding: 80px 60px;
@@ -115,11 +131,12 @@ nav a:hover::after {
     text-align: center;
 }
 
-/* SECTION BACKGROUNDS */
+/* SECTION BACKGROUND COLORS */
 #about { background: #e6f4f1; }
 #skills { background: #eef2ff; }
 #projects { background: #ecfdf5; }
 #education { background: #fff1e6; }
+#experience { background: #eef2f7; }
 #certifications { background: #fff9db; }
 #contact { background: #e9eff6; }
 
@@ -154,12 +171,14 @@ nav a:hover::after {
 
 .skill-box {
     border-left: 6px solid #6366f1;
+    padding-left: 15px;
 }
 
 .skill-box h3 {
     margin-bottom: 12px;
 }
 
+/* Skill badges */
 .skill-box span {
     display: inline-block;
     margin: 6px;
@@ -168,6 +187,38 @@ nav a:hover::after {
     border-radius: 50px;
     font-weight: bold;
     font-size: 14px;
+}
+
+/* Skill bars */
+.skill {
+    margin-bottom: 12px;
+}
+
+.skill-bar {
+    height: 10px;
+    border-radius: 20px;
+    background: #e5e7eb;
+    margin-top: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-bar::after {
+    content: "";
+    display: block;
+    height: 100%;
+    border-radius: 20px;
+}
+
+/* Specific proficiency */
+.skill-bar.html::after {
+    width: 90%;
+    background: #6366f1;
+}
+
+.skill-bar.css::after {
+    width: 40%;
+    background: #64ffda;
 }
 
 /* ================= PROJECTS ================= */
@@ -197,20 +248,27 @@ nav a:hover::after {
 .edu-box {
     background: linear-gradient(135deg, #fb923c, #f97316);
     color: white;
+    padding: 25px;
+    border-radius: 15px;
 }
 
 .edu-box p {
     opacity: 0.95;
 }
 
-/* CGPA / Percentage badge */
-.edu-box p b {
+.year-pill {
+    margin-top: 15px;
+    padding: 7px 18px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50px;
     display: inline-block;
-    margin-top: 10px;
-    padding: 6px 16px;
-    background: rgba(255,255,255,0.25);
-    border-radius: 20px;
-    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ================= EXPERIENCE / MUTED TEXT ================= */
+.muted {
+    color: #444;
+    font-style: italic;
 }
 
 /* ================= CERTIFICATIONS ================= */
@@ -224,11 +282,8 @@ nav a:hover::after {
     border-bottom: 5px solid #facc15;
     text-align: center;
     font-weight: 600;
-}
-
-.muted {
-    color: #444;
-    font-style: italic;
+    padding: 20px;
+    border-radius: 12px;
 }
 
 /* ================= CONTACT ================= */
@@ -254,79 +309,12 @@ footer {
 }
 
 /* ================= RESPONSIVE ================= */
-
-/* Tablet */
-@media (max-width: 992px) {
-    nav {
-        padding: 15px 30px;
-    }
-
-    .section {
-        padding: 70px 30px;
-    }
-
-    .hero h1 {
-        font-size: 36px;
-    }
-}
-
-/* Mobile */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
     nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
         gap: 15px;
     }
-
-    .hero {
-        padding: 90px 20px;
-    }
-
-    .hero h1 {
-        font-size: 30px;
-    }
-
-    .hero h3 {
-        font-size: 18px;
-    }
-
-    .section h2 {
-        font-size: 26px;
-    }
-
-    .skills-grid,
-    .project-grid,
-    .edu-grid,
-    .cert-grid {
+    .skills-grid, .project-grid, .edu-grid, .cert-grid {
         grid-template-columns: 1fr;
-    }
-}
-
-/* Small Mobile */
-@media (max-width: 480px) {
-    nav h2 {
-        font-size: 20px;
-    }
-
-    nav a {
-        font-size: 14px;
-    }
-
-    .hero h1 {
-        font-size: 26px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    .card {
-        padding: 22px;
     }
 }
