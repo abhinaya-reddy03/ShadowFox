@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="loadCheckoutTotal()">
+
+<header>
+    <h1>Checkout</h1>
+    <a href="cart.html">⬅ Back to Cart</a>
+</header>
+
+<div class="container">
+    <div class="cart-box">
+
+        <h3 id="checkout-total"></h3>
+
+        <form onsubmit="placeOrder(event)">
+            
+            <label>Full Name:</label>
+            <input type="text" id="name" required>
+
+            <label>Address:</label>
+            <textarea id="address" required></textarea>
+
+            <label>Phone Number:</label>
+            <input type="text" id="phone" required>
+
+            <label>Payment Method:</label>
+            <select id="payment" required>
+                <option value="">Select</option>
+                <option>Cash on Delivery</option>
+                <option>UPI</option>
+                <option>Credit Card</option>
+            </select>
+
+            <br><br>
+            <button type="submit">Place Order</button>
+        </form>
+
+    </div>
+</div>
+
+<script src="js/cart.js"></script>
+
+</body>
+</html>
